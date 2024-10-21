@@ -25,13 +25,28 @@ $day = 5;
 	- Выполните задание 2 используя управляющую конструкцию match. Результат сохраните в файле match.php.
 	*/
 	switch ($day){
-	    case $day>=1 && $day<=5:
+	    case 1:
 	        echo 'Это рабочий день';
 	        break;
-	    case $day>5 && $day<=7:
+	    case 2:
+	        echo 'Это рабочий день';
+	        break;
+	    case 3:
+	        echo 'Это рабочий день';
+	        break;
+	    case 4:
+	        echo 'Это рабочий день';
+	        break;
+	    case 5:
+	        echo 'Это рабочий день';
+	        break;
+	    case 6:
 	        echo 'Это выходной день';
 	        break;
-	    case $day<1 || $day>7:
+	    case 7:
+	        echo 'Это выходной день';
+	        break;
+	    default:
 	        echo 'Неизвестный день';
 	}
 	

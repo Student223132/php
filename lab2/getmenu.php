@@ -27,21 +27,15 @@
     */
 	function getMenu($menu = [], bool $vertical = true){
 	    if ($vertical){
-	        echo '<ul class="menu">';
-	        foreach($menu as $item){
-	            echo '<li  class="vertical"><a href='.$item['href'].'>'.$item['link'].'</a></li>';
-	        }
-	        echo '</ul>';
+	        echo '<ul>';
 	    }
 	    else {
-	        echo '<nav>';
-	        echo '<ul>';
-	        foreach($menu as $item){
-	        echo '<li class="horisontal"><a href='.$item['href'].'>'.$item['link'].'</a></li>';
-	        }
-	        echo '</ul>';
-	        echo '</nav>';
+	        echo '<ul class="vertical">';
 	    }
+	    foreach($menu as $item){
+	        echo '<li><a href='.$item['href'].'>'.$item['link'].'</a></li>';
+	        }
+	    echo '</ul>';
 	}
 ?>
 <!DOCTYPE html>
@@ -62,13 +56,7 @@
 			display: inline;
 			padding: 5px
 		}
-		nav ul li {
-            display: inline-block;
-            margin-left: 10px;
-        }
-        nav ul li:first-child {
-            margin-left: 0px;
-        }
+
 	</style>
 </head>
 <body>

@@ -11,7 +11,6 @@
 	- Измените код таким образом, чтобы таблица отрисовывалась в зависимости от входящих параметров $cols, $rows и $color
 	- Добавьте в объявлние функции описание типов аргументов
 	*/
-	$count = 0;
 	
 	/**
 	* Рисует таблицу с заданными значениями
@@ -19,6 +18,7 @@
     * @return счётчик вызовов функции $count
     */
 	function getTable(int $cols = 9, int $rows = 9, string $color = "#ffebb5"){
+	    static $count = 0;
 	   	echo '<table border="1">';
 	    echo '<tbody>';
 	    for ($i = 1; $i <= $cols; $i++){
@@ -42,8 +42,8 @@
 	    }
 	    echo '</tbody>';
 	    echo '</table>';
-	    $GLOBALS['count']++;
-	    return $GLOBALS['count'];
+	    $count++;
+	    return $count;
 	}
 ?>
 <!DOCTYPE html>
@@ -93,8 +93,8 @@
 	*/
 	getTable(3, 3, "#cccccc");
 	getTable(4);
-	getTable(8, 4);
-	echo "число вызовов функции - $count";
+	$count1 = getTable(8, 4);
+	echo "число вызовов функции - $count1";
 	?> 
 </body>
 </html>

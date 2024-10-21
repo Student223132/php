@@ -46,17 +46,17 @@
 	*/
 	$cols = 9;
 	$rows = 9;
-	echo '<table border="1">';
+	echo '<table>';
 	echo '<tbody>';
 	for ($i = 1; $i <= $cols; $i++){
 	    echo '<tr>';
 	    for ($j = 1; $j <= $rows; $j++){
 	        if ($i == 1 || $j == 1){
-	            echo '<td bgcolor="#CCCCCC">';
+	            echo '<th>';
 	            echo '<b>';
 	            echo $i * $j;
 	            echo '</b>';
-	            echo '</td>'; 
+	            echo '</th>'; 
 	        }
 	        else{
 	            echo '<td>';
