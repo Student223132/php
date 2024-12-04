@@ -2,11 +2,11 @@
     <form action='<?=$_SERVER['REQUEST_URI']?>' method = "POST">
       <label>Количество колонок: </label>
       <br>
-      <input name='cols' type='text' value='<?php if (isset($_POST['cols'])) echo $_POST['cols'] ?>'>
+      <input name='cols' type='text' value='<?php if (isset($_POST['cols'])){ echo $_POST['cols'];} else echo 10; ?>'>
       <br>
       <label>Количество строк: </label>
       <br>
-      <input name='rows' type='text' value='<?php if (isset($_POST['rows'])) echo $_POST['rows'] ?>'>
+      <input name='rows' type='text' value='<?php if (isset($_POST['rows'])){ echo $_POST['rows'];} else echo 10;?>'>
       <br>
       <label>Цвет: </label>
       <br>
