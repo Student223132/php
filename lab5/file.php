@@ -12,18 +12,21 @@
 */
  define("FILENAME", "text.txt");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name1 = filter_input(INPUT_POST, 'fname');
-    $name2 = filter_input(INPUT_POST, 'lname');
-    trim($name1);
-    trim($name2);
-    htmlspecialchars($name1);
-    htmlspecialchars($name2);
-    $str = "$name1". ' '. "$name2 \n";
-    $fd = fopen("db/". FILENAME, 'a') or die("не удалось создать файл");
-    fseek($fd, 0, SEEK_END);
-    fwrite($fd, $str);
-    fclose($fd);
-    header("Location: http://f1035596.xsph.ru/lab5/file.php");
+    if ('' !== filter_input(INPUT_POST, 'fname') && '' !== filter_input(INPUT_POST, 'lname')){
+        $name1 = filter_input(INPUT_POST, 'fname');
+        $name2 = filter_input(INPUT_POST, 'lname');
+        trim($name1);
+        trim($name2);
+        $str = htmlspecialchars($name1). ' '. htmlspecialchars($name2). " \n";
+        $fd = fopen("db/". FILENAME, 'a') or die("не удалось создать файл");
+        fseek($fd, 0, SEEK_END);
+        fwrite($fd, $str);
+        fclose($fd);
+        header("Location: http://f1035596.xsph.ru/lab5/file.php");
+    }
+    else{
+        echo "Заполните все поля";
+    }
 }
 ?>
 <!DOCTYPE html>
