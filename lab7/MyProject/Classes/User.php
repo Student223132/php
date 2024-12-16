@@ -21,4 +21,3 @@ class User {
         echo $this -> name ." ". $this -> login ." ". $password1 . "\n";
     }
 }
-?>

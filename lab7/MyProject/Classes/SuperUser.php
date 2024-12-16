@@ -15,4 +15,3 @@ class SuperUser extends User {
         echo "Role: " . $this->role . "\n";
     }
 }
-?>
