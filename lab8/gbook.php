@@ -27,17 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['email'])));
     $msg = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['msg'])));
     
-    if (empty($name) || empty($email) || empty($msg)) {
-        echo "Заполните все поля формы";
-    } 
-    else {
-        $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
+
+    $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
     
     if (mysqli_query($connection, $query)) {
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
-    }
+    
     
 }
 /*
@@ -73,11 +70,11 @@ if (isset($_GET['delete'])) {
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 Ваше имя:<br>
-<input type="text" name="name"><br>
+<input type="text" name="name" required><br>
 Ваш E-mail:<br>
-<input type="email" name="email"><br>
+<input type="email" name="email" required><br>
 Сообщение:<br>
-<textarea name="msg" cols="50" rows="5"></textarea><br>
+<textarea name="msg" cols="50" rows="5" required></textarea><br>
 <br>
 <input type="submit" value="Добавить!">
 
