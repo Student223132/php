@@ -6,11 +6,13 @@
         
         $fullPath = $baseDir . '/' . $path . '.php';
         
-        echo "Попытка загрузить файл: " . $fullPath . "<br>";
+        echo "(Автоподключение классов) Попытка загрузить файл: " . $fullPath . "<br>";
         
         if (file_exists($fullPath)) {
             require_once($fullPath);
-        } else {
+            echo "Файл загружен успешно <br>";
+        } 
+        else {
             echo "Файл не найден: " . $fullPath . "<br>";
         }
     }
