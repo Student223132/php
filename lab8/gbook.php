@@ -12,7 +12,7 @@
   После этого с помощью функции header() выполните перезапрос страницы, 
   чтобы избавиться от информации, переданной через форму
 */
-require_once 'config-sample.php';
+require_once 'config.php';
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -26,13 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['name'])));
     $email = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['email'])));
     $msg = trim(htmlspecialchars(mysqli_real_escape_string($connection, $_POST['msg'])));
-
-    $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
+    
+    if (empty($name) || empty($email) || empty($msg)) {
+        echo "Заполните все поля формы";
+    } 
+    else {
+        $query = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
     
     if (mysqli_query($connection, $query)) {
         header('Location: ' . $_SERVER['PHP_SELF']);
         exit();
     }
+    }
+    
 }
 /*
 ЗАДАНИЕ 3
